@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-labelledby="title desc">
+  <title id="title">MySQL</title>
+  <desc id="desc">Database cylinder icon for MySQL</desc>
+  <defs>
+    <linearGradient id="g" x1="25" y1="18" x2="95" y2="102" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#7dd3fc"/>
+      <stop offset="1" stop-color="#f97316"/>
+    </linearGradient>
+  </defs>
+  <rect width="120" height="120" rx="26" fill="#07111f"/>
+  <ellipse cx="60" cy="31" rx="34" ry="14" fill="none" stroke="url(#g)" stroke-width="7"/>
+  <path d="M26 31v42c0 8 15 15 34 15s34-7 34-15V31" fill="none" stroke="url(#g)" stroke-width="7"/>
+  <path d="M26 52c0 8 15 15 34 15s34-7 34-15" fill="none" stroke="#d8deea" stroke-width="6" opacity=".86"/>
+  <path d="M37 92h46" stroke="#d8deea" stroke-width="7" stroke-linecap="round"/>
+</svg>

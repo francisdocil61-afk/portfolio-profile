@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-labelledby="title desc">
+  <title id="title">UI UX Basics</title>
+  <desc id="desc">Interface layout and cursor icon</desc>
+  <defs>
+    <linearGradient id="g" x1="20" y1="18" x2="100" y2="102" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#b990ff"/>
+      <stop offset="1" stop-color="#54e6a2"/>
+    </linearGradient>
+  </defs>
+  <rect width="120" height="120" rx="24" fill="#0b1020"/>
+  <rect x="21" y="23" width="78" height="61" rx="10" fill="none" stroke="url(#g)" stroke-width="6"/>
+  <path d="M33 41h54M33 57h26M33 72h36" stroke="#d8deea" stroke-width="6" stroke-linecap="round"/>
+  <path d="M74 67l22 11-10 4 8 17-9 4-8-17-8 8 5-27z" fill="#ff8a3d"/>
+</svg>

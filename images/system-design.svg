@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-labelledby="title desc">
+  <title id="title">System Design</title>
+  <desc id="desc">Connected system nodes icon</desc>
+  <defs>
+    <linearGradient id="g" x1="18" y1="19" x2="102" y2="101" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ffb56a"/>
+      <stop offset="1" stop-color="#6c5ce7"/>
+    </linearGradient>
+  </defs>
+  <rect width="120" height="120" rx="24" fill="#080d18"/>
+  <path d="M41 42h38M60 42v34M41 76h38" stroke="#d8deea" stroke-width="6" stroke-linecap="round"/>
+  <rect x="24" y="25" width="34" height="34" rx="9" fill="none" stroke="url(#g)" stroke-width="6"/>
+  <rect x="62" y="25" width="34" height="34" rx="9" fill="none" stroke="url(#g)" stroke-width="6"/>
+  <rect x="43" y="65" width="34" height="34" rx="9" fill="none" stroke="url(#g)" stroke-width="6"/>
+</svg>
