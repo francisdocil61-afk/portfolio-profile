@@ -79,7 +79,7 @@
       background-size: 74px 74px;
       mask-image: linear-gradient(to bottom, black, transparent 84%);
       pointer-events: none;
-      animation: gridDrift 18s linear infinite;
+      background-position: 0 0, 0 0;
     }
 
     [data-theme="light"] body::before {
@@ -99,18 +99,7 @@
         radial-gradient(circle, rgba(255, 138, 61, 0.55) 1px, transparent 1.5px);
       background-size: 120px 120px, 180px 180px;
       background-position: 0 0, 52px 70px;
-      animation: starsMove 20s linear infinite;
       pointer-events: none;
-    }
-
-    @keyframes gridDrift {
-      from { background-position: 0 0, 0 0; }
-      to { background-position: 74px 74px, 74px 74px; }
-    }
-
-    @keyframes starsMove {
-      from { transform: translateY(0); }
-      to { transform: translateY(-120px); }
     }
 
     a {
@@ -143,7 +132,7 @@
       z-index: 1000;
       border-bottom: 1px solid rgba(255, 255, 255, 0.09);
       background: linear-gradient(180deg, rgba(5, 7, 13, 0.88), rgba(5, 7, 13, 0.68));
-      backdrop-filter: blur(18px);
+      backdrop-filter: blur(8px);
     }
 
     [data-theme="light"] .navbar {
@@ -347,10 +336,9 @@
       width: 270px;
       height: 270px;
       border-radius: 999px;
-      filter: blur(18px);
-      opacity: 0.35;
+      filter: blur(8px);
+      opacity: 0.26;
       pointer-events: none;
-      animation: floatOrb 8s ease-in-out infinite;
     }
 
     .orb-one {
@@ -363,12 +351,6 @@
       right: -110px;
       bottom: 12%;
       background: rgba(108, 92, 231, 0.36);
-      animation-delay: 1.4s;
-    }
-
-    @keyframes floatOrb {
-      0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
-      50% { transform: translate3d(18px, -24px, 0) scale(1.08); }
     }
 
     .hero-grid {
@@ -421,12 +403,7 @@
       -webkit-background-clip: text;
       background-clip: text;
       text-shadow: 0 0 40px rgba(255, 138, 61, 0.16);
-      animation: textFlow 5s ease-in-out infinite;
-    }
-
-    @keyframes textFlow {
-      0%, 100% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
+      background-position: 50% 50%;
     }
 
     .role {
@@ -533,7 +510,7 @@
       box-shadow: var(--shadow);
       transform: rotateY(-7deg) rotateX(2deg);
       transition: 0.45s ease;
-      backdrop-filter: blur(16px);
+      backdrop-filter: blur(8px);
       isolation: isolate;
     }
 
@@ -587,7 +564,6 @@
       font-size: 3.2rem;
       font-weight: 1000;
       letter-spacing: -0.09em;
-      animation: floatCard 4.8s ease-in-out infinite;
     }
 
     .avatar-photo {
@@ -621,11 +597,6 @@
       box-shadow: 0 12px 28px rgba(255, 138, 61, 0.24);
     }
 
-    @keyframes floatCard {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-14px); }
-    }
-
     .floating-chip {
       position: absolute;
       display: inline-flex;
@@ -636,10 +607,9 @@
       color: var(--text);
       background: rgba(0, 0, 0, 0.32);
       border: 1px solid rgba(255, 255, 255, 0.14);
-      backdrop-filter: blur(10px);
+      backdrop-filter: blur(6px);
       font-size: 0.68rem;
       font-weight: 850;
-      animation: chipFloat 5.5s ease-in-out infinite;
     }
 
     [data-theme="light"] .floating-chip {
@@ -649,12 +619,7 @@
     }
 
     .chip-one { left: 22px; top: 24px; }
-    .chip-two { right: 18px; bottom: 22px; animation-delay: 1.2s; }
-
-    @keyframes chipFloat {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
+    .chip-two { right: 18px; bottom: 22px; }
 
     .profile-card-bottom {
       position: relative;
@@ -693,6 +658,8 @@
     section {
       padding: 84px 0;
       scroll-margin-top: 96px;
+      content-visibility: auto;
+      contain-intrinsic-size: 780px;
     }
 
     .section-head {
@@ -734,7 +701,7 @@
         linear-gradient(145deg, rgba(255, 255, 255, 0.095), rgba(255, 255, 255, 0.04));
       border: 1px solid var(--line);
       box-shadow: 0 20px 55px rgba(0, 0, 0, 0.22);
-      backdrop-filter: blur(15px);
+      backdrop-filter: blur(7px);
       transition: 0.28s ease;
     }
 
@@ -1014,27 +981,13 @@
       border-radius: inherit;
       background: linear-gradient(90deg, var(--accent), var(--accent-2));
       transform-origin: left;
-      animation: fillBar 1.2s ease both;
+      transform: scaleX(1);
       position: relative;
       overflow: hidden;
     }
 
     .bar span::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.38), transparent);
-      animation: barPulse 2.4s ease-in-out infinite;
-    }
-
-    @keyframes barPulse {
-      from { transform: translateX(-110%); }
-      to { transform: translateX(110%); }
-    }
-
-    @keyframes fillBar {
-      from { transform: scaleX(0); }
-      to { transform: scaleX(1); }
+      content: none;
     }
 
     .project-toolbar {
@@ -1100,8 +1053,6 @@
       border-color: rgba(255, 255, 255, 0.12);
       background:
         linear-gradient(180deg, rgba(255, 255, 255, 0.085), rgba(255, 255, 255, 0.045));
-      transform-style: preserve-3d;
-      will-change: transform;
     }
 
     .project-card::before {
@@ -1395,15 +1346,13 @@
 
     .reveal {
       opacity: 0;
-      transform: translateY(28px) scale(0.985);
-      filter: blur(7px);
-      transition: opacity 0.75s ease, transform 0.75s ease, filter 0.75s ease;
+      transform: translateY(18px);
+      transition: opacity 0.42s ease, transform 0.42s ease;
     }
 
     .reveal.visible {
       opacity: 1;
       transform: translateY(0);
-      filter: blur(0);
     }
 
     .delay-1 { transition-delay: 0.1s; }
@@ -1480,13 +1429,30 @@
           var(--bg);
       }
 
+      .navbar,
+      .glass,
+      .profile-visual,
+      .floating-chip {
+        backdrop-filter: none;
+      }
+
+      .orb {
+        display: none;
+      }
+
       .container {
-        width: min(100% - 28px, var(--max));
+        width: min(100% - 24px, var(--max));
       }
 
       .nav-content {
         min-height: calc(70px + env(safe-area-inset-top));
         padding-top: env(safe-area-inset-top);
+        gap: 10px;
+      }
+
+      .brand {
+        gap: 10px;
+        min-width: 0;
       }
 
       .menu-btn {
@@ -1535,12 +1501,27 @@
 
       .hero {
         min-height: auto;
-        padding: 38px 0 52px;
+        padding: 28px 0 42px;
       }
 
       h1 {
-        font-size: clamp(2.7rem, 14vw, 4.2rem);
-        letter-spacing: -0.075em;
+        max-width: 100%;
+        margin-bottom: 14px;
+        font-size: clamp(2.15rem, 9vw, 2.85rem);
+        line-height: 1.02;
+        letter-spacing: -0.052em;
+      }
+
+      .role {
+        margin-bottom: 14px;
+        font-size: clamp(0.94rem, 3.6vw, 1.05rem);
+        line-height: 1.35;
+      }
+
+      .hero-text {
+        margin-bottom: 22px;
+        font-size: 0.94rem;
+        line-height: 1.62;
       }
 
       .section-head {
@@ -1574,16 +1555,41 @@
 
       .hero-actions {
         flex-direction: column;
+        gap: 12px;
+        margin-bottom: 18px;
       }
 
       .btn {
         width: 100%;
+        min-height: 52px;
       }
 
       .mini-stats,
       .projects-grid,
       .form-row {
         grid-template-columns: 1fr;
+      }
+
+      .mini-stats {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 9px;
+      }
+
+      .mini-stat {
+        min-width: 0;
+        padding: 12px 10px;
+        border-radius: 16px;
+        background: rgba(255, 255, 255, 0.055);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .mini-stat strong {
+        font-size: 1.32rem;
+      }
+
+      .mini-stat span {
+        font-size: 0.7rem;
+        line-height: 1.2;
       }
 
       .skill-tags {
@@ -1627,22 +1633,22 @@
 
       .eyebrow {
         max-width: 100%;
-        letter-spacing: 0.11em;
+        padding: 7px 10px;
+        font-size: 0.68rem;
+        letter-spacing: 0.09em;
       }
 
       .hero-text {
-        font-size: 0.96rem;
+        font-size: 0.9rem;
+        line-height: 1.58;
       }
 
       .mini-stats {
-        gap: 10px;
+        gap: 8px;
       }
 
       .mini-stat {
-        padding: 14px;
-        border-radius: 16px;
-        background: rgba(255, 255, 255, 0.055);
-        border: 1px solid rgba(255, 255, 255, 0.08);
+        padding: 11px 8px;
       }
 
       .visual-wrap {
@@ -1719,11 +1725,24 @@
       }
 
       h1 {
-        font-size: clamp(2.35rem, 13vw, 3.25rem);
+        font-size: clamp(1.92rem, 10vw, 2.35rem);
+        line-height: 1;
       }
 
       .role {
-        font-size: 1rem;
+        font-size: 0.88rem;
+      }
+
+      .hero-text {
+        font-size: 0.86rem;
+      }
+
+      .mini-stat strong {
+        font-size: 1.16rem;
+      }
+
+      .mini-stat span {
+        font-size: 0.64rem;
       }
 
       .section-head h2 {

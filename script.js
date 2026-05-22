@@ -137,40 +137,6 @@ class ProjectFilter {
   }
 }
 
-class ProjectTiltEffect {
-  constructor() {
-    this.cards = document.querySelectorAll(".project-card");
-    this.reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    this.isTouchDevice = window.matchMedia("(pointer: coarse)").matches;
-  }
-
-  init() {
-    if (this.reduceMotion || this.isTouchDevice || !this.cards.length) return;
-
-    this.cards.forEach((card) => {
-      card.addEventListener("pointermove", (event) => this.tiltCard(event, card));
-      card.addEventListener("pointerleave", () => this.resetCard(card));
-    });
-  }
-
-  tiltCard(event, card) {
-    const rect = card.getBoundingClientRect();
-    const x = (event.clientX - rect.left) / rect.width - 0.5;
-    const y = (event.clientY - rect.top) / rect.height - 0.5;
-
-    card.style.transform = [
-      "perspective(900px)",
-      "rotateX(" + (-y * 5).toFixed(2) + "deg)",
-      "rotateY(" + (x * 6).toFixed(2) + "deg)",
-      "translateY(-6px)"
-    ].join(" ");
-  }
-
-  resetCard(card) {
-    card.style.transform = "";
-  }
-}
-
 class ClipboardController {
   constructor(ownerEmail) {
     this.ownerEmail = ownerEmail;
@@ -282,7 +248,6 @@ class ProfileApp {
     new NavigationController().init();
     new RevealAnimator().init();
     new ProjectFilter().init();
-    new ProjectTiltEffect().init();
     new ClipboardController(this.ownerEmail).init();
     new ContactForm(this.ownerEmail).init();
   }
